@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wight@100;300;400;500;700&display=swap');
+
+:root{
+    --main-color:#b31e6f;
+    --black:#acccdc;
+    --bg: #ffffff;
+    --border:.1rem solid rgba(255, 221, 255, .3);
+}
+
+*{
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+}
+
+body{
+    background: var(--bg);
+}
+
+section{
+    padding:2rem 7%;
+}
+
+.heading{
+    text-align: left;
+    color: #033139;
+    text-transform: capitalize;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+    transition: color 1s ease;
+}
+
+.heading span{
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: .2rem;
+}
+
+.header {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    padding: .7rem 7%;
+    background-image: linear-gradient(rgba(246, 246, 246, 0.384), rgba(246, 246, 246, 0.384));
+    background-color: #c5abba;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .logo img{
+    height: 6rem;
+}
+
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: #033139;
+}
+
+.header .navbar a:hover{
+    color:  var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.header .icons div{
+    color: #033139;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: .2rem;
+    margin-right: 10px;
+}
+
+.header .icons div:hover{
+    color: var(--main-color);
+}
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons .fas {
+    font-size: 2rem; /* Sesuaikan ukuran ikon sesuai kebutuhan */
+    margin-left: 10px; /* Sesuaikan jarak antara ikon */
+    cursor: pointer;
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top: 145%; right: 7%;
+    background: #b7acac;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem;
+    text-transform: none;
+}
+
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black);
+}
+
+.header .search-form label:hover{
+    color: var(--main-color);
+}
+
+.header .icons .location-btn{
+    margin-right: 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.heading {
+    margin-left: auto;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.login-container {
+    margin-left: auto ;
+}
+
+.login {
+    color: #c5abba;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    padding: 0.5rem 1rem;
+    border: 2px solid #d29533;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    transform: scaleY(0);
+}
+
+.login.active{
+    transform: scaleY(1);
+}
+
+.login:hover {
+    background: #d29533;
+    color: var(--main-color);
+}
+
+.wrapper {
+    width: 450px;
+    margin: 200px auto;
+    padding: 30px;
+    background-color: #eee7eb;
+    backdrop-filter: blur(5px);
+    align-items: center;
+    border-radius: 7px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+        label[for="username"],
+        label[for="password"] {
+            font-size: 1.5rem; /* Sesuaikan ukuran font yang diinginkan */
+        }
+
+        label[for="penyakit_id"],
+        label[for="penyakit_jenis"]{
+            font-size: 1.5rem; /* Sesuaikan ukuran font yang diinginkan */
+        }
+        label[for="penyakit_nama"] {
+            margin-top: 1.5rem;
+            font-size: 1.5rem; /* Sesuaikan ukuran font yang diinginkan */
+        }
+
+        label[for="nama_obat"],
+        label[for="kategori_obat"] {
+            font-size: 1.5rem; /* Sesuaikan ukuran font yang diinginkan */
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: none;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #b31e6f;
+        }
+
+
+.wrapper .login-icon {
+    font-size: 1.6rem;
+    color: #c985ad;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background: #acccdc;
+    color: var(--main-color);
+}
+
+/* Efek slide-up */
+.wrapper .slide-up {
+    animation: slideUp 1s ease-in-out forwards; /* Mengatur animation-fill-mode ke forwards */
+    opacity: 0;
+    transform: translateY(50px); /* Muncul dari bawah sejauh 50px */
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-link{
+    color: #b31e6f;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 2px solid #ddd;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        th {
+            background-color: #c5abba;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+            font-family: "Ubuntu", sans-serif;
+            font-size: 13px;
+        }
+
+        .form-label {
+            display: inline-block;
+            width: 120px; /* Sesuaikan lebar label sesuai kebutuhan */
+            margin-right: 10px; /* Jarak antara label dan input */
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e2e0e0;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="button"] {
+            background-color: #b31e6f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="button"]:hover {
+            background-color: #c985ad;
+        }
+
+        /*------------Home-------------*/
+
+        .home{
+            height: 115vh;
+            display: flex;
+            align-items: center;
+            /*--background: url('/bootstrap/images/background.jpg') no-repeat;*/
+            background-size: cover;
+            background-position: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        
+        .home .content{
+            max-width: 60rem;
+            background: #fff;
+            padding: 6rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .home .content h3{
+            font-size: 6rem;
+            text-transform: capitalize;
+            color: #fff;
+            font-family: mv boli;
+        }
+        
+        .home .content p{
+            text-transform: capitalize;
+            font-size: 1.7rem;
+            font-weight: bold;
+            padding: 1rem 0;
+            color: rgb(18, 15, 18);
+        }
+
+        .home .content-login{
+            max-width: 60rem;
+            padding: 6rem;
+            border-radius: 10px;
+        }
+        
+        .home .content-login h3{
+            font-size: 6rem;
+            text-transform: capitalize;
+            color: #fff;
+            font-family: mv boli;
+        }
+        
+        .home .content-login p{
+            text-transform: capitalize;
+            font-size: 1.7rem;
+            font-weight: bold;
+            padding: 1rem 0;
+            color: rgb(18, 15, 18);
+        }
+
+/*------------Footer-------------*/
+
+
+.footer{
+    background: #4d89a3;
+    text-align: center;
+}
+
+.footer .share{
+    padding:1rem 0;
+}
+
+.footer .share a{
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: #fff;
+    border: var(--border);
+    margin: 3rem;
+    border-radius: 50%;
+}
+
+.footer .share a:hover{
+    background-color: var(--main-color);
+}
+
+.footer .links{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    gap: 1rem;
+}
+
+.footer .links a{
+    padding: .7rem 2rem;
+    color: #fff;
+    border: var(--border);
+    font-size: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.footer .links a:hover{
+    background: var(--main-color);
+}
+
+.footer .credit{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: lighter;
+    padding: 1.5rem;
+}
+
+.footer .credit span{
+    color: var(--main-color);
+}
+
+/* media quires */
+@media (max-width: 991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem 2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+     #menu-btn{
+        display: inline-block;
+     }
+
+
+     .login {
+        background-size: cover; /* Mengatur gambar agar menutupi seluruh area */
+    }
+
+     .header .navbar{
+        position: absolute;
+        top: 100%; right: -100%;
+        background: #c985ad;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+     }
+
+     .header .navbar.active{
+        right: 0;
+     }    
+
+     .header .navbar a{
+        color: var(--black);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+     }
+
+     .header .search-form{
+        width: 90%;
+        right: 2rem;
+     }
+
+     .home{
+        background-position: left;
+        justify-content: center;
+        text-align: center;
+     }
+
+     .home .contact h3{
+        font-size: 4.5rem;
+     }
+
+     .home .contact p{
+        font-size: 1.5rem;
+     }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+}
+

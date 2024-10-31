@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue: #165875;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+
+body{
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.logo {
+    display: flex; /* Menggunakan flexbox agar elemen sejajar */
+    align-items: center; /* Menyamakan vertikal pada tengah */
+    padding: 10px 30px 0 10px; /* Padding diatur sesuai kebutuhan */
+}
+
+.logo img {
+    width: 50px; /* Atur lebar gambar */
+    height: auto; /* Biarkan ketinggian otomatis */
+    margin-right: 10px; /* Berikan sedikit jarak antara gambar dan teks */
+}
+
+.litle {
+    margin: 0; /* Hilangkan margin bawaan untuk menghindari celah */
+    font-size: 18px; /* Atur ukuran font */
+}
+
+
+.cointainer{
+    position: relative;
+    width: 100%;
+}
+
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active{
+    width: 80px;
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li{
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered{
+    background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1){
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a{    
+    color: var(--blue);
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon{
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .litle{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+
+/*---------------------headmain---------------------*/
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+}
+
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.home{
+    position: relative;
+    justify-content: left;
+    align-items: left;
+    padding-right: 60rem;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+}
+
+/*---------------------user---------------------*/
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dashboard-content {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+}
+
+.dashboard-content h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.user-profile{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.user-profile img {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-items: center;
+}
+
+.history-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-right: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.timestamp {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #b31e6f;
+}
+
+.event {
+    margin: 0;
+}
+
+.profile {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.profile-item {
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+    color: #b31e6f;
+}
+
+.info {
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: (2, 1fr); /* Menyusun 2 kolom dengan lebar yang sama */
+    gap: 20px; /* Jarak antar kolom */
+}
+
+.container .obat-container{
+    flex: 1;
+    padding: 10px;
+    text-align: left;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 15px;
+    
+}
+
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.text {
+    margin: 0;
+}
+
+.pharmacy-container {
+    flex-wrap: wrap;
+    display: flex;
+    grid-template-columns: repeat(1, 1fr); 
+}
+.pharmacy-item {
+    width: 95%; /* Adjust as needed */
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-right: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 15px;
+    flex: 1 70%;
+}
+
+.pharmacy-item img {
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.pharmacy-item h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #b31e6f;
+}
+
+.sign-out {
+    text-align: center;
+    margin: 10px;
+}
+.sign-out-text{
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin: 5px;
+}
+.sign-out button {
+    padding: 10px 20px;
+    background-color: #85beda;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.sign-out button:hover {
+    background-color: #165875;
+}
+
+
+/*---------------------admin---------------------*/
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+}
+
+.btn-edit, .btn-delete {
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+   background-color: #b31e6f;
+}
+
+.add{
+    align-items: right;
+    text-align: right;
+    padding: 15px 0 15px;
+}
+
+.add-1{
+    align-items: center;
+    text-align: center;
+    padding: 15px 0 15px;
+}
+
+.add .button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #85beda;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.add .button:hover {
+    background-color: #165875;
+}
+
